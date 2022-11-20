@@ -49,7 +49,7 @@ Once started, you can access [http://localhost:5009/graphql](http://localhost:50
 
 The following JSON will return the first 50 records from the database where `isActive` and `isSellable` is `true`, and the records will be sorted by `sku` ascending.
 
-```json
+```graphql
 query {
   products(
     first: 50
@@ -96,4 +96,4 @@ query {
 }
 ```
 
-Additional queries an be found in the Schema Reference section of the [http://localhost:5009/graphql](http://localhost:5009/graphql) site.
+Additional queries can be found in the Schema Reference section of the [http://localhost:5009/graphql](http://localhost:5009/graphql) site.
