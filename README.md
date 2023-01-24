@@ -2,5 +2,5 @@
 
 This project contains a simple .NET GraphQL example using ChilliCream, Entity Framework, and SQL Server.
 
-- [ProductMicroservice](ProductMicroservice/) - The main .NET GraphQL example application
+- [ProductMicroservice](ProductMicroservice/) - The main .NET GraphQL example application (start here first)
 - [DatabaseSeeder](DatabaseSeeder/) - A project that seeds the database with test data

@@ -4,7 +4,7 @@ This application shows a basic example of an ASP.NET GraphQL implementation usin
 
 ## Requirements
 
-- .NET SDK 6
+- .NET SDK 7+
 - Docker for your environment
   - [Docker Desktop](https://www.docker.com/products/docker-desktop) for Mac or Windows
   - [Docker for Linux](https://hub.docker.com/search?offering=community&operating_system=linux&q=&type=edition)
@@ -96,4 +96,4 @@ query {
 }
 ```
 
-Additional queries an be found in the Schema Reference section of the [http://localhost:5009/graphql](http://localhost:5009/graphql) site.
+Additional information can be found in the Schema Reference section of the [http://localhost:5009/graphql](http://localhost:5009/graphql) site.

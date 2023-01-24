@@ -4,7 +4,7 @@ This project seeds test data into the SQL Server instance used by the [ProductMi
 
 ## Requirements
 
-- .NET SDK 6+
+- .NET SDK 7+
 - SQL Server 2019
 - Assumes that the Entity Framework migrations have been run and the necessary tables and indexes exist, as defined in the [ProductMicroservice](../ProductMicroservice/) project
 
