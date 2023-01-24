@@ -49,17 +49,12 @@ Once started, you can access [http://localhost:5009/graphql](http://localhost:50
 
 The following JSON will return the first 50 records from the database where `isActive` and `isSellable` is `true`, and the records will be sorted by `sku` ascending.
 
-```json
+```graphql
 query {
   products(
     first: 50
-    where: {
-      isActive: { eq: true}
-      isSellable: { eq: true }
-    }
-    order: [
-      { sku: ASC }
-    ]
+    where: { isActive: { eq: true }, isSellable: { eq: true } }
+    order: [{ sku: ASC }]
   ) {
     totalCount
     pageInfo {
