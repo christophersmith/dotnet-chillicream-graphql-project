@@ -6,6 +6,7 @@ namespace ProductMicroservice.Types;
 [GraphQLName("Query")]
 public class QueryType
 {
+    [GraphQLDescription("Gets a product record, for the specified ID.")]
     public Product? GetProduct(
             [Service]
             ProductService service,
@@ -18,6 +19,7 @@ public class QueryType
         return service.GetProduct(id);
     }
 
+    [GraphQLDescription("Returns a collection of products that match the filter.")]
     [UsePaging(IncludeTotalCount = true)]
     [UseFiltering]
     [UseSorting]
@@ -29,6 +31,7 @@ public class QueryType
         return service.GetProductsAsQueryable();
     }
 
+    [GraphQLDescription("Returns a collection of product attribute types that match the filter.")]
     [UsePaging]
     [UseFiltering]
     [UseSorting]

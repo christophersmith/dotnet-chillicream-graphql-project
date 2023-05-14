@@ -25,6 +25,13 @@ The database migrations process will create the necessary tables and indexes use
 dotnet tool install --global dotnet-ef
 ```
 
+Or installed locally, when in the `ProductMicroservice` directory.
+
+```shell
+dotnet new tool-manifest
+dotnet tool install --local dotnet-ef
+```
+
 Ensure the SQL Server instance is running, then run the following command in the `ProductMicroservice` directory:
 
 ```shell
