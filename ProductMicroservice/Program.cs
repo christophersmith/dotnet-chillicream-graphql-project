@@ -17,6 +17,8 @@ builder.Services.AddGraphQLServer()
     .RegisterDbContext<ProductDbContext>(DbContextKind.Pooled)
     .AddTypeConverter<GuidChangeTypeProvider>()
     .AddQueryType<QueryType>()
+    .AddMutationConventions()
+    .AddMutationType<MutationType>()
     .AddFiltering()
     .AddSorting();
 

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using ProductMicroservice.Contexts;
 using ProductMicroservice.Models;
 
@@ -38,6 +39,39 @@ public class ProductService : IAsyncDisposable
     public IQueryable<ProductAttributeType> GetProductAttributeTypesAsQueryable()
     {
         return _context.ProductAttributeTypes.AsQueryable();
+    }
+
+    public Product? DeleteProduct(Guid id)
+    {
+        var record = _context.Products.Where(x => x.Id.Equals(id)).FirstOrDefault();
+        if (record is not null)
+        {
+            _context.Products.Remove(record);
+            _context.SaveChanges();
+        }
+        return record;
+    }
+
+    public ProductAttribute? DeleteProductAttribute(Guid id)
+    {
+        var record = _context.ProductAttributes.Where(x => x.Id.Equals(id)).FirstOrDefault();
+        if (record is not null)
+        {
+            _context.ProductAttributes.Remove(record);
+            _context.SaveChanges();
+        }
+        return record;
+    }
+
+    public ProductAttributeType? DeleteProductAttributeType(Guid id)
+    {
+        var record = _context.ProductAttributeTypes.Where(x => x.Id.Equals(id)).FirstOrDefault();
+        if (record is not null)
+        {
+            _context.ProductAttributeTypes.Remove(record);
+            _context.SaveChanges();
+        }
+        return record;
     }
 
     public ValueTask DisposeAsync()

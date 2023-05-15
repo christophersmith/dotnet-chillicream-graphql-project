@@ -10,9 +10,8 @@ public class QueryType
     public Product? GetProduct(
             [Service]
             ProductService service,
-
             [GraphQLType(typeof(IdType)), GraphQLNonNullType]
-            [GraphQLDescription("The product's identifier, represented as a UUIDv4")]
+            [GraphQLDescription("The product's identifier, represented as an UUIDv4")]
             Guid id
         )
     {
