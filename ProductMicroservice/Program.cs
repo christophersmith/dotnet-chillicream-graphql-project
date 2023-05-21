@@ -22,7 +22,21 @@ builder.Services.AddGraphQLServer()
     .AddFiltering()
     .AddSorting();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder =>
+        {
+            builder
+            .WithOrigins("http://localhost:3000") // Allow only this origin
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
+
+app.UseCors("AllowSpecificOrigin");
 
 app.MapGraphQL();
 
