@@ -1,5 +1,6 @@
 using ProductMicroservice.Contexts;
 using ProductMicroservice.Models;
+using ProductMicroservice.Services;
 
 namespace DatabaseSeeder.Seeders;
 
@@ -18,7 +19,7 @@ public class ProductDbSeeder
         RemoveAllProductAttributeTypes();
         RemoveAllProducts();
 
-        var modifiedUserId = Guid.Parse("c99da33d-e22e-4439-8f00-2461c94c9a8b");
+        var modifiedUserId = ProductService.DEFAULT_USER_ID;
         var modifiedDateTime = DateTime.Now;
 
         var codeProductAttributeTypeDictionary = AddProductAttributeTypes(modifiedUserId, modifiedDateTime);
