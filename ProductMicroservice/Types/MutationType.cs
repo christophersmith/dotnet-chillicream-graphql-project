@@ -1,3 +1,4 @@
+using ProductMicroservice.Inputs;
 using ProductMicroservice.Models;
 using ProductMicroservice.Services;
 
@@ -6,6 +7,32 @@ namespace ProductMicroservice.Types;
 [GraphQLName("Mutation")]
 public class MutationType
 {
+    [GraphQLDescription("Creates a product attribute type record and returns the record if the product attribute type is created.")]
+    [UseMutationConvention]
+    public ProductAttributeType? CreateProductAttributeType(
+            [Service]
+            ProductService service,
+            [GraphQLNonNullType]
+            [GraphQLDescription("The product attribute type's input payload")]
+            CreateProductAttributeTypeInput input
+        )
+    {
+        return service.CreateProductAttributeType(input, ProductService.DEFAULT_USER_ID);
+    }
+
+    [GraphQLDescription("Updates a product attribute type record and returns the record if the product attribute type is found and updated.")]
+    [UseMutationConvention]
+    public ProductAttributeType? UpdateProductAttributeType(
+            [Service]
+            ProductService service,
+            [GraphQLNonNullType]
+            [GraphQLDescription("The product attribute type's input payload")]
+            UpdateProductAttributeTypeInput input
+        )
+    {
+        return service.UpdateProductAttributeType(input, ProductService.DEFAULT_USER_ID);
+    }
+
     [GraphQLDescription("Deletes a product record, for the specified ID, and returns the record if the product is found.")]
     [UseMutationConvention]
     public Product? DeleteProduct(

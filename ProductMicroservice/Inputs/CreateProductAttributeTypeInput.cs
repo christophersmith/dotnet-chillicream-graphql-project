@@ -14,8 +14,4 @@ public class CreateProductAttributeTypeInput
     [GraphQLNonNullType]
     [GraphQLDescription("Denotes whether a product can have multiple product attribute values for this type")]
     public bool AreMultipleEntriesAllowed { get; set; }
-
-    [GraphQLNonNullType]
-    [GraphQLDescription("Denotes whether this record is active")]
-    public bool IsActive { get; set; }
 }
