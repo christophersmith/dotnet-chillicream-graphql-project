@@ -4,3 +4,4 @@ This project contains a simple .NET GraphQL example using ChilliCream, Entity Fr
 
 - [ProductMicroservice](ProductMicroservice/) - The main .NET GraphQL example application (start here first)
 - [DatabaseSeeder](DatabaseSeeder/) - A project that seeds the database with test data
+- [react-app](react-app) - The frontend project that provides UI to perform CRUD functions using the .NET GraphQL application
