@@ -2,6 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Install Required Dependencies
+
+### Download Node/NPM
+https://nodejs.org/en/download
+
+### Targeted Node/NPM version
+Current using latest LTS version: 18.16.0 (includes npm 9.5.1)
+
+### `npm install`
+
+Installs all node modules found in `package.json` into `node_modules` folder. This is required before getting started with [Available Scripts](#available-scripts)
+
 ## Available Scripts
 
 In the project directory, you can run:

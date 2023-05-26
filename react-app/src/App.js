@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { ApolloProvider } from '@apollo/client';
 import client from './apollo';
