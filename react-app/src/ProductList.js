@@ -2,56 +2,29 @@ import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import {
   List,
-  ListItem,
   ListItemButton,
   ListItemText,
   ListItemAvatar,
-  Typography,
-  Box,
 } from "@mui/material";
 import WidgetsIcon from "@mui/icons-material/Widgets";
-import NumbersIcon from '@mui/icons-material/Numbers';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import CategoryIcon from '@mui/icons-material/Category';
+
+import ProductDetail from './ProductDetail';
 
 const GET_PRODUCTS = gql`
   query GetProducts {
     products(
       first: 50
       where: { isActive: { eq: true }, isSellable: { eq: true } }
-      order: [{ sku: ASC }]
+      order: [{ name: ASC }]
     ) {
       totalCount
-      pageInfo {
-        hasNextPage
-        hasPreviousPage
-        startCursor
-        endCursor
-        __typename
-      }
       edges {
         node {
           id
-          sku
           name
           description
-          unitMsrp
-          productAttributes {
-            productAttributeType {
-              code
-              name
-              isActive
-              __typename
-            }
-            value
-            __typename
-          }
-          __typename
         }
-        cursor
-        __typename
       }
-      __typename
     }
   }
 `;
@@ -79,41 +52,7 @@ function ProductList() {
             </ListItemAvatar>
             <ListItemText primary={node.name} secondary={node.description} />
           </ListItemButton>
-          {selectedProductId === node.id && (
-            <Box marginLeft={7}>
-              <List disablePadding>
-                <ListItem>
-                  <ListItemAvatar>
-                    <NumbersIcon />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary="SKU"
-                    secondary={node.sku}
-                  ></ListItemText>
-                </ListItem>
-                <ListItem>
-                  <ListItemAvatar>
-                    <AttachMoneyIcon />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary="Unit MSRP"
-                    secondary={node.unitMsrp}
-                  ></ListItemText>
-                </ListItem>
-                {node.productAttributes.map((attr, index) => (
-                  <ListItem key={index}>
-                    <ListItemAvatar>
-                      <CategoryIcon />
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary={attr.productAttributeType.name}
-                      secondary={attr.value}
-                    ></ListItemText>
-                  </ListItem>
-                ))}
-              </List>
-            </Box>
-          )}
+          {selectedProductId === node.id && <ProductDetail node={node} />}
         </div>
       ))}
     </List>
